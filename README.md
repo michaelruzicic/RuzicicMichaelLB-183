@@ -151,16 +151,56 @@ namespace M183.Controllers
 ## Artefakt 1 - Code vorher:
 ```csharp
 using M183.Controllers.Dto;
-    ...
+using M183.Controllers.Helper;
+using M183.Data;
+using M183.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+
+namespace M183.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
     public class LoginController : ControllerBase
     {
-        ...
+        private readonly NewsAppContext _context;
+
+        public LoginController(NewsAppContext context)
+        {
+            _context = context;
+        }
+
+        /// <summary>
+        /// Login a user using password and username
+        /// </summary>
+        /// <response code="200">Login successfull</response>
+        /// <response code="400">Bad request</response>
+        /// <response code="401">Login failed</response>
         [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         public ActionResult<User> Login(LoginDto request)
         {
-            ...
+            if (request == null || string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password))
+            {
+                return BadRequest();
+            }
+
+            string sql = "SELECT * FROM Users WHERE username = @Username AND password = @Password";
+
+            SqlParameter usernameParameter = new SqlParameter("@Username", request.Username);
+            SqlParameter passwordParameter = new SqlParameter("@Password", MD5Helper.ComputeMD5Hash(request.Password));
+
             User? user = _context.Users.FromSqlRaw(sql, usernameParameter, passwordParameter).FirstOrDefault();
-            ...
+            if (user == null)
+            {
+                return Unauthorized("Login failed");
+            }
+
+            return Ok(user);
         }
     }
 }
