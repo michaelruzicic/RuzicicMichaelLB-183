@@ -42,8 +42,6 @@ Die OWASP Top Ten 2021 Tabelle erweist sich als ein effektives Instrument, um di
 
 # Handlungsziel 2️⃣
 
-Verstanden! Hier sind die kürzeren Versionen der beiden Artefakte für den LoginController "nachher":
-
 #### Artefakt 1 - Code vorher
 ```csharp
 using M183.Controllers.Dto;
