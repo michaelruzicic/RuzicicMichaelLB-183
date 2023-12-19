@@ -1,9 +1,7 @@
 # Schwachstellen in Appilkationen: Von der Erkennung zur Absicherung
 
-
-
-
-
+-
+-
 
 ## Introduktion
 
