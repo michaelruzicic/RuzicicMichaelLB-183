@@ -160,4 +160,4 @@ namespace M183.Controllers
 
 **Erklärung der Artefakte:** Die beiden Codebeispiele repräsentieren eine "LoginController"-Klasse in einer Beispielapplikation. Der vorherige Code verwendete eine unsichere Methode, um Benutzereingaben in SQL-Abfragen einzufügen, während der nachherige Code Sicherheitsverbesserungen durch die Verwendung von parameterisierten Abfragen und SQL-Parametern aufzeigt.
 
-**Kritische Beurteilung:** Der vorherige Code wies erhebliche Sicherheitslücken auf, da er anfällig für SQL Injection-Angriffe war. Dies hätte schwerwiegende Sicherheitsprobleme in der Anwendung verursachen können. Der nachherige Code stellt eine wesentliche Verbesserung dar, indem er die Sicherheit der Anwendung erhöht. 
+**Kritische Beurteilung:** Der vorherige Code wies erhebliche Sicherheitslücken auf, da er ungeschützt gegen SQL Injection-Angriffe war. Dies hätte schwerwiegende Sicherheitsprobleme in der Anwendung verursacht. Der nachherige Code stellt eine deutliche Verbesserung dar, indem er die Sicherheit der Anwendung erhöht. 
