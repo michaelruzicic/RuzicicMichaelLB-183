@@ -42,7 +42,7 @@ Die OWASP Top Ten 2021 Tabelle erweist sich als ein effektives Instrument, um di
 
 ## Handlungsziel 2
 
-#### LoginController - Artefakt vorher:
+#### Artefakt 1 - LoginController nachher:
 ```csharp
 using M183.Controllers.Dto;
 using M183.Controllers.Helper;
@@ -97,7 +97,7 @@ namespace M183.Controllers
 }
 ```
 
-#### LoginController - Artefakt nachher:
+#### Artefakt 2 - LoginController nachher:
 
 ```csharp
 using M183.Controllers.Dto;
