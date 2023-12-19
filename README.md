@@ -166,37 +166,20 @@ using M183.Controllers.Dto;
 }
 ```
 
-## Artefakt 2 - Code nachher:
+## Artefakt 2 - Kompletter Code nachher:
 ```csharp
-using M183.Controllers.Dto;
-    ...
-public class LoginController : ControllerBase
-    ...
-    {
-        ...
-        [HttpPost]
-        public ActionResult<string> Login(LoginDto request)
-        {
-            ...
-            var user = _context.Users.FirstOrDefault(u => u.Username == request.Username && u.Password == request.Password);
-            ...
-        }
-    }
-}
-```
-
-## Kompletter Code des überarbeiteten LoginControllers:
-```csharp
-using M183.Controllers.Dto;
-using M183.Controllers.Helper;
-using M183.Data;
-using M183.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using M183.Controllers.Dto;
+using M183.Data;
+using M183.Models;
 
 namespace M183.Controllers
 {
@@ -213,35 +196,65 @@ namespace M183.Controllers
             _configuration = configuration;
         }
 
-        [HttpPost]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(401)]
-        public ActionResult<string> Login(LoginDto request)
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> Authenticate(LoginDto request)
         {
             if (request == null || string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password))
             {
-                return BadRequest();
+                return BadRequest("Invalid request");
             }
 
-            var user = _context.Users.FirstOrDefault(u => u.Username == request.Username && u.Password == request.Password);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == request.Username && u.Password == request.Password);
             if (user == null)
             {
-                return Unauthorized("Login failed");
+                return Unauthorized("Invalid username or password");
             }
 
-            ...
-            return Ok(tokenString);
+            var token = GenerateJwtToken(user);
+            return Ok(new { Token = token });
+        }
+
+        private string GenerateJwtToken(User user)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            };
+
+            var token = new JwtSecurityToken(
+                _configuration["Jwt:Issuer"],
+                _configuration["Jwt:Issuer"],
+                claims,
+                expires: DateTime.Now.AddHours(1),
+                signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }
+
 ```
 
 ## Nachweis der Zielereichung
 Die Zielereichung wird durch das überarbeitete Artefakt, den LoginController mit der Implementierung des JwtAuthenticationService, erreicht. Dies ermöglicht die sicherere Authentifizierung und Autorisierung von Benutzern in der Anwendung.
 
 ## Erklärung der Artefakte (Codes)
-Das Artefakt besteht aus dem überarbeiteten Code des LoginControllers. Dieser verwendet den JwtAuthenticationService, um Benutzer zu authentifizieren und JWT-Tokens zu generieren. Der Benutzer wird anhand des Benutzernamens und des Passworts überprüft. Bei erfolgreicher Authentifizierung wird ein JWT-Token generiert und zurückgegeben.
+**Code 1 (vorher):**
+- Verwendet einfache SQL-Abfrage, um Benutzer anhand von Benutzername und Passwort zu überprüfen.
+- Es verwendet den veralteten Ansatz der Übertragung von Passwörtern im Klartext und verwendet MD5-Hashing, was nicht sicher ist.
+- Gibt den Benutzer als Antwort zurück, wenn die Authentifizierung erfolgreich ist.
+- Die Authentifizierungsmethode ist nicht sicher und sollte vermieden werden.
+
+**Code 2 (nachher):**
+- Verwendet die Entity Framework Core-Datenbankabfrage, um Benutzer anhand von Benutzername und Passwort zu überprüfen.
+- Nutzt JSON Web Tokens (JWT) für die sichere Authentifizierung und Autorisierung von Benutzern.
+- Erstellt ein JWT-Token und gibt es als Antwort zurück, wenn die Authentifizierung erfolgreich ist. Dieses Token kann für den Zugriff auf geschützte Ressourcen verwendet werden.
+- Die Authentifizierungsmethode wurde erheblich verbessert und verwendet moderne Sicherheitspraktiken.
 
 ## Kritische Beurteilung
 Die Umsetzung des Artefakts erfüllt das Handlungsziel, stellt jedoch nur eine Grundlage für die sichere Authentifizierung und Autorisierung dar. Weitere Sicherheitsaspekte wie die sichere Übertragung von Daten müssen ebenfalls berücksichtigt werden. Der Code des Artefakts kann weiter verbessert werden, um Schwachstellen und Sicherheitsrisiken zu minimieren.
