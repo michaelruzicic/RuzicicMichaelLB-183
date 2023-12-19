@@ -32,12 +32,12 @@ In der heutigen digitalisierten Welt, in der Anwendungen das Rückgrat zahlreich
 | 10   | Server-Side Request Forgery (SSRF) | Angriffe, bei denen der Server dazu gebracht wird, unerwünschte Aktionen auszuführen.               | Netzwerküberwachung, Sicherheitsüberprüfungen                        | Beschränkung ausgehender Anfragen, Verwendung sicherer Programmierpraktiken             |
 
 **Nachweis der Zielerreichung:**
-Die Tabelle zeigt meine Fähigkeit, komplexe Sicherheitsrisiken zu identifizieren und zu analysieren. Sie wurde eigenständig recherchiert und zusammengefasst, wodurch ich mein Wissen über Erkennungsmethoden und Gegenmaßnahmen vertiefen konnte.
+Die Tabelle zeigt meine Fähigkeit, knifflig Sicherheitsrisiken zu identifizieren und zu analysieren. Sie wurde eigenständig recherchiert und zusammengefasst, wodurch ich mein Wissen über Erkennungsmethoden und Gegenmaßnahmen erwitern konnte.
 
 **Erklärung des Artefakts:**
-Die Tabelle bietet einen umfassenden Überblick über die zehn größten Sicherheitsrisiken im Bereich der Webanwendungssicherheit, einschließlich deren Beschreibung, Erkennungsmethoden und Gegenmaßnahmen. Sie dient als kompaktes Nachschlagewerk für die wichtigsten Bedrohungen und deren Abwehr.
+Die Tabelle bietet einen umfassenden Überblick über die zehn größten Sicherheitsrisiken im Bereich der Webanwendungssicherheit (Stand 2021), einschließlich deren Beschreibung, Erkennungsmethoden und Gegenmaßnahmen. Sie dient als kompaktes Recherchemittel für die wichtigsten Bedrohungen und deren Abwehrmöglichkeiten.
 
 **Kritische Beurteilung:**
-Die OWASP Top Ten 2021 Tabelle erweist sich als ein effektives Instrument, um die zentralen Bedrohungen in der Applikationssicherheit abzubilden. Sie bietet eine solide Übersicht über kritische Sicherheitsrisiken. Da die Tabelle die Sicherheitsrisiken von 2021 abbildet, hätte eine Erweiterung mit Diskussionen über bestehende Angriffstrends und wie man ihnen begegnet, die Relevanz im Bezug zur Praxis und Bedeutung im sich ständig ändernden Bereich der Cybersecurity erhöht. Trotz dieser Einschränkungen bietet die Tabelle, meiner Meinung nach, eine robuste Basis, die ein umfassendes Verständnis der grundlegenden Sicherheitsrisiken nachweist.
+Die OWASP Top Ten 2021 Tabelle erweist sich als ein effektives Instrument, um die zentralen Bedrohungen in der Applikationssicherheit abzubilden. Sie bietet eine solide Übersicht über kritische Sicherheitsrisiken. Da die Tabelle die Sicherheitsrisiken von 2021 abbildet, hätte eine Erweiterung mit Diskussionen über aktuelle "Angriffstrends" und wie man ihnen begegnet, die Bedeutung im sich ständig ändernden Bereich der Cybersecurity erhöht. Ausserdem kann man diesem Artefakt Minuspunkte geben, da sie diese Begrifflichkeiten nur oberflächlich beschreibt und keine praxisbezogene Beispiele vorweist.. Trotz diesen Einschränkungen bietet die Tabelle, meiner Meinung nach, eine robuste Basis, die ein umfassendes Verständnis der grundlegenden Sicherheitsrisiken nachweist.
 
 
