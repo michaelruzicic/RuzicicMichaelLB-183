@@ -15,7 +15,7 @@ In der heutigen digitalisierten Welt, in der Anwendungen das Rückgrat zahlreich
 | 4️⃣  | Sicherheitsrelevante Aspekte bei Entwurf, Implementierung und Inbetriebnahme berücksichtigen.               |
 | 5️⃣  | Informationen für Auditing und Logging generieren. Auswertungen und Alarme definieren und implementieren.   |
 
-# HZ1️⃣
+# Handlungsziel 1️⃣
 ### Artefakt: OWASP Top Ten 2021 Tabelle
 
 | Rang | Risiko                           | Beschreibung                                                                                       | Erkennungsmethoden                                                   | Gegenmassnahmen                                                                           |
