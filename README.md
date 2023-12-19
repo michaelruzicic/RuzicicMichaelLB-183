@@ -1,1 +1,1 @@
-# RuzicicMichaelLB-183
+# Schwachstellen in Anwendungen: Von der Erkennung zur Absicherung
