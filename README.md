@@ -9,13 +9,13 @@ In der heutigen digitalisierten Welt, in der Anwendungen das Rückgrat zahlreich
 
 | HZ | Handlungsziel                                                                                               |
 |----|-------------------------------------------------------------------------------------------------------------|
-| I  | Aktuelle Bedrohungen erkennen und erläutern können. Aktuelle Informationen zum Thema beschaffen und mögliche Auswirkungen aufzeigen und erklären können. |
-| II  | Sicherheitslücken und ihre Ursachen in einer Applikation erkennen können. Gegenmassnahmen vorschlagen und implementieren können. |
-| III  | Mechanismen für die Authentifizierung und Autorisierung umsetzen können.                                    |
-| IV  | Sicherheitsrelevante Aspekte bei Entwurf, Implementierung und Inbetriebnahme berücksichtigen.               |
-| V  | Informationen für Auditing und Logging generieren. Auswertungen und Alarme definieren und implementieren.   |
+| 1️⃣  | Aktuelle Bedrohungen erkennen und erläutern können. Aktuelle Informationen zum Thema beschaffen und mögliche Auswirkungen aufzeigen und erklären können. |
+| 2️⃣  | Sicherheitslücken und ihre Ursachen in einer Applikation erkennen können. Gegenmassnahmen vorschlagen und implementieren können. |
+| 3️⃣  | Mechanismen für die Authentifizierung und Autorisierung umsetzen können.                                    |
+| 4️⃣  | Sicherheitsrelevante Aspekte bei Entwurf, Implementierung und Inbetriebnahme berücksichtigen.               |
+| 5️⃣  | Informationen für Auditing und Logging generieren. Auswertungen und Alarme definieren und implementieren.   |
 
-# Handlungsziel I
+# Handlungsziel 1️⃣
 ### Artefakt: OWASP Top Ten 2021 Tabelle
 
 | Rang | Risiko                           | Beschreibung                                                                                       | Erkennungsmethoden                                                   | Gegenmassnahmen                                                                           |
@@ -31,16 +31,16 @@ In der heutigen digitalisierten Welt, in der Anwendungen das Rückgrat zahlreich
 | 9    | Security Logging and Monitoring Failures | Unzureichende Protokollierung und Überwachung, die das Erkennen von Sicherheitsvorfällen verhindert. | Überprüfung von Protokollen und Alarmen, Sicherheitsaudits          | Implementierung umfassender Protokollierungs- und Überwachungssysteme                    |
 | 10   | Server-Side Request Forgery (SSRF) | Angriffe, bei denen der Server dazu gebracht wird, unerwünschte Aktionen auszuführen.               | Netzwerküberwachung, Sicherheitsüberprüfungen                        | Beschränkung ausgehender Anfragen, Verwendung sicherer Programmierpraktiken             |
 
-## Nachweis der Zielerreichung:
+## ☑️ Nachweis der Zielerreichung: 
 Die Tabelle zeigt meine Fähigkeit, knifflige Sicherheitsrisiken zu identifizieren und zu analysieren. Sie wurde eigenständig recherchiert und zusammengefasst, wodurch ich mein Wissen über Erkennungsmethoden und Gegenmassnahmen erwitern konnte.
 
-## Erklärung des Artefakts:
+## 🧾Erklärung der Artefakte: 
 Die Tabelle bietet einen umfassenden Überblick über die zehn grössten Sicherheitsrisiken im Bereich der Webanwendungssicherheit (Stand 2021), einschliesslich deren Beschreibung, Erkennungsmethoden und Gegenmassnahmen. Sie dient als kompaktes Recherchemittel für die wichtigsten Bedrohungen und deren Abwehrmöglichkeiten.
 
-## Kritische Beurteilung:
+## 👀 Kritische Beurteilung: 
 Die OWASP Top Ten 2021 Tabelle erweist sich als ein effektives Instrument, um die zentralen Bedrohungen in der Applikationssicherheit abzubilden. Sie bietet eine solide Übersicht über kritische Sicherheitsrisiken. Da die Tabelle die Sicherheitsrisiken von 2021 abbildet, hätte eine Erweiterung mit Diskussionen über aktuelle "Angriffstrends" und wie man ihnen begegnet, die Bedeutung im sich ständig ändernden Bereich der Cybersecurity erhöht. Ausserdem kann man diesem Artefakt noch zusätzliche Minuspunkte geben, da sie diese Begrifflichkeiten nur oberflächlich beschreibt und keine praxisbezogene Beispiele vorweist. Trotz diesen Einschränkungen bietet die Tabelle, meiner Meinung nach, eine robuste Basis, die ein umfassendes Verständnis der grundlegenden Sicherheitsrisiken bietet.
 
-# Handlungsziel II
+# Handlungsziel 2️⃣
 
 Verstanden! Hier sind die kürzeren Versionen der beiden Artefakte für den LoginController "nachher":
 
@@ -138,16 +138,16 @@ namespace M183.Controllers
 }
 ```
 
-## Nachweis der Zielerreichung: 
+## ☑️ Nachweis der Zielerreichung: 
 Der zweite Code zeigt eine Verbesserung in Bezug auf die Sicherheit gegenüber dem vorherigen Code. Dies wird durch die Verwendung parameterisierter SQL-Abfragen mit SQL-Parametern deutlich, was SQL Injection-Angriffe verhindert. Das Ziel, Sicherheitslücken zu erkennen und Gegenmassnahmen zu implementieren, wurde erreicht.
 
-## Erklärung der Artefakte: 
+## 🧾Erklärung der Artefakte: 
 Die beiden Codebeispiele repräsentieren eine "LoginController"-Klasse in einer Beispielapplikation. Der vorherige Code verwendete eine unsichere Methode, um Benutzereingaben in SQL-Abfragen einzufügen, während der nachherige Code Sicherheitsverbesserungen durch die Verwendung von parameterisierten Abfragen und SQL-Parametern aufzeigt.
 
-## Kritische Beurteilung: 
+## 👀 Kritische Beurteilung: 
 Der vorherige Code wies erhebliche Sicherheitslücken auf, da er ungeschützt gegen SQL Injection-Angriffe war. Dies hätte schwerwiegende Sicherheitsprobleme in der Anwendung verursacht. Der nachherige Code stellt eine deutliche Verbesserung dar, indem er die Sicherheit der Anwendung erhöht. 
 
-# Handlungsziel III
+# Handlungsziel 3️⃣
 
 
 
@@ -283,10 +283,10 @@ namespace M183.Controllers
 
 ```
 
-## Nachweis der Zielereichung
+## ☑️ Nachweis der Zielerreichung: 
 Die Zielereichung wird durch das überarbeitete Artefakt, den LoginController mit der Implementierung des JwtAuthenticationService, erreicht. Dies ermöglicht die sicherere Authentifizierung und Autorisierung von Benutzern in der Anwendung.
 
-## Erklärung der Artefakte 
+## 🧾Erklärung der Artefakte: 
 **Code 1 (vorher):**
 - Verwendet einfache SQL-Abfrage, um Benutzer anhand von Benutzername und Passwort zu überprüfen.
 - Es verwendet den veralteten Ansatz der Übertragung von Passwörtern im Klartext und verwendet MD5-Hashing, was nicht sicher ist.
@@ -298,6 +298,6 @@ Die Zielereichung wird durch das überarbeitete Artefakt, den LoginController mi
 - Erstellt ein JWT-Token und gibt es als Antwort zurück, wenn die Authentifizierung erfolgreich ist. Dieses Token kann für den Zugriff auf geschützte Ressourcen verwendet werden.
 - Die Authentifizierungsmethode wurde erheblich verbessert und verwendet moderne Sicherheitspraktiken.
   
-## Kritische Beurteilung
+## 👀 Kritische Beurteilung: 
 Die Umwandlung des alten Codes zum neuen deckt grundsätzlich die Umsetzung der Mechanismen für Authentifizierung und Autorisierung ab. Es ist jedoch nicht sehr leicht, es kurz und prägnant darzustellen, was dazu folgt, dass er für die Leser ermüdend ist.
 
