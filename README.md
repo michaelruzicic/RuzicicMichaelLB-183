@@ -156,14 +156,8 @@ namespace M183.Controllers
 }
 ```
 
-**Nachweis der Zielerreichung:**
+**Nachweis der Zielerreichung:** Der zweite Code zeigt eine Verbesserung in Bezug auf die Sicherheit gegenüber dem vorherigen Code. Dies wird durch die Verwendung parameterisierter SQL-Abfragen mit SQL-Parametern deutlich, was SQL Injection-Angriffe verhindert. Das Ziel, Sicherheitslücken zu erkennen und Gegenmassnahmen zu implementieren, wurde erreicht.
 
-Der Code im LoginController erfüllt das Handlungsziel, indem er die Schwachstellen bei der Authentifizierung und Autorisierung des Benutzers adressiert. Durch die Implementierung des Passwort-Hashing-Verfahrens und der Anpassung der Abfrage zum Vergleich von Benutzername und Passwort in der Datenbank wird sichergestellt, dass nur authentifizierte Benutzer Zugriff erhalten.
+**Erklärung der Artefakte:** Die beiden Codebeispiele repräsentieren eine "LoginController"-Klasse in einer Beispielapplikation. Der vorherige Code verwendete eine unsichere Methode, um Benutzereingaben in SQL-Abfragen einzufügen, während der nachherige Code Sicherheitsverbesserungen durch die Verwendung von parameterisierten Abfragen und SQL-Parametern aufzeigt.
 
-**Erklärung des Artefakts:**
-
-Das Artefakt ist eine überarbeitete Version des Codes des LoginControllers. Der Code implementiert die Funktion "Login", bei der der Benutzername und das Passwort übergeben werden. Der Code stellt sicher, dass die Anfrage valide ist und dass sowohl der Benutzername als auch das Passwort in der Datenbank gespeichert sind. Das Passwort wird vor der Überprüfung mit MD5 gehasht, um die Sicherheit zu verbessern. Dadurch werden Sicherheitslücken in der Authentifizierung verhindert und die Angriffsfläche der Anwendung reduziert.
-
-**Kritische Beurteilung:**
-
-Die Umsetzung des Artefakts ist im Hinblick auf das Handlungsziel erfolgreich. Durch die Überarbeitung des Codes im LoginController werden Sicherheitslücken geschlossen und die Anwendung wird besser vor Angriffen geschützt. Der Code implementiert bewährte Praktiken für die Authentifizierung, wie das Hashen von Passwörtern und die Überprüfung der Benutzerdaten in der Datenbank. Dennoch ist es wichtig zu beachten, dass die Sicherheit einer Anwendung kontinuierlich überwacht und verbessert werden muss. Es kann zusätzliche Massnahmen geben, die zur Steigerung der Sicherheit der Anwendung beitragen können.
+**Kritische Beurteilung:** Der vorherige Code wies erhebliche Sicherheitslücken auf, da er anfällig für SQL Injection-Angriffe war. Dies hätte schwerwiegende Sicherheitsprobleme in der Anwendung verursachen können. Der nachherige Code stellt eine wesentliche Verbesserung dar, indem er die Sicherheit der Anwendung erhöht. Es ist jedoch wichtig zu beachten, dass Sicherheit eine kontinuierliche Anstrengung ist, und zusätzliche Sicherheitsaspekte wie Authentifizierung und Autorisierung sollten ebenfalls in Betracht gezogen werden.
