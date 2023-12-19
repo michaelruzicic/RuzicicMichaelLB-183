@@ -18,33 +18,31 @@ In der heutigen digitalisierten Welt, in der Anwendungen das Rückgrat zahlreich
 ## Handlungsziel I
 ### Artefakt: OWASP Top Ten 2021 Tabelle
 
-| Rang | Risiko                           | Beschreibung                                                                                       | Erkennungsmethoden                                                   | Gegenmaßnahmen                                                                           |
+| Rang | Risiko                           | Beschreibung                                                                                       | Erkennungsmethoden                                                   | Gegenmassnahmen                                                                           |
 |------|----------------------------------|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
 | 1    | Broken Access Control            | Unzureichende Einschränkung der Zugriffsrechte, die zu unbefugtem Zugriff führen kann.             | Überprüfung von Zugriffsprotokollen, Penetrationstests               | Implementierung von rollenbasierten Zugriffskontrollen, Prinzip der minimalen Rechte     |
 | 2    | Cryptographic Failures           | Schwachstellen in der Verschlüsselung, die zur Offenlegung sensibler Daten führen können.          | Sicherheitsüberprüfungen der Kryptographie, Code-Reviews             | Verwendung sicherer und aktueller Kryptographiestandards, sichere Schlüsselverwaltung    |
 | 3    | Injection                        | Einschleusen von bösartigem Code durch Eingabefelder, z.B. SQL, NoSQL, OS Command Injection.       | Eingabedatenvalidierung, Sicherheitsüberprüfungen                    | Verwendung von Prepared Statements und ORM-Frameworks, Validierung aller Eingaben        |
-| 4    | Insecure Design                  | Mangel an Sicherheitsmaßnahmen im Design und Architektur der Software.                             | Threat Modelling, Architekturüberprüfungen                           | Anwendung von Secure-Design-Prinzipien, regelmäßige Sicherheitsaudits                    |
-| 5    | Security Misconfiguration        | Fehlkonfigurationen, die zu Sicherheitslücken führen können, z.B. ungeschützte Datenbanken.        | Automatisierte Konfigurationsüberprüfungen, Sicherheitsaudits        | Strenge Konfigurationsmanagementprozesse, regelmäßige Updates und Patches                |
-| 6    | Vulnerable and Outdated Components | Verwendung veralteter oder unsicherer Komponenten in der Software.                               | Softwarekompositionsanalyse, regelmäßige Abhängigkeitsüberprüfungen  | Aktualisierung auf die neuesten sicheren Versionen, Verwendung sicherer Bibliotheken     |
+| 4    | Insecure Design                  | Mangel an Sicherheitsmassnahmen im Design und Architektur der Software.                             | Threat Modelling, Architekturüberprüfungen                           | Anwendung von Secure-Design-Prinzipien, regelmässige Sicherheitsaudits                    |
+| 5    | Security Misconfiguration        | Fehlkonfigurationen, die zu Sicherheitslücken führen können, z.B. ungeschützte Datenbanken.        | Automatisierte Konfigurationsüberprüfungen, Sicherheitsaudits        | Strenge Konfigurationsmanagementprozesse, regelmässige Updates und Patches                |
+| 6    | Vulnerable and Outdated Components | Verwendung veralteter oder unsicherer Komponenten in der Software.                               | Softwarekompositionsanalyse, regelmässige Abhängigkeitsüberprüfungen  | Aktualisierung auf die neuesten sicheren Versionen, Verwendung sicherer Bibliotheken     |
 | 7    | Identification and Authentication Failures | Schwächen in der Identifikation und Authentifizierung, die zu unbefugtem Zugriff führen können. | Überprüfung der Authentifizierungsprotokolle, Penetrationstests      | Multi-Faktor-Authentifizierung, robuste Passwortrichtlinien                                |
 | 8    | Software and Data Integrity Failures | Mangelnde Integritätsprüfungen, die zu unautorisierten Datenänderungen führen können.             | Integritätsüberprüfungen, Code-Signierung                            | Verwendung von Code-Signierung, Implementierung von Integritätsprüfungen                 |
 | 9    | Security Logging and Monitoring Failures | Unzureichende Protokollierung und Überwachung, die das Erkennen von Sicherheitsvorfällen verhindert. | Überprüfung von Protokollen und Alarmen, Sicherheitsaudits          | Implementierung umfassender Protokollierungs- und Überwachungssysteme                    |
 | 10   | Server-Side Request Forgery (SSRF) | Angriffe, bei denen der Server dazu gebracht wird, unerwünschte Aktionen auszuführen.               | Netzwerküberwachung, Sicherheitsüberprüfungen                        | Beschränkung ausgehender Anfragen, Verwendung sicherer Programmierpraktiken             |
 
 **Nachweis der Zielerreichung:**
-Die Tabelle zeigt meine Fähigkeit, knifflig Sicherheitsrisiken zu identifizieren und zu analysieren. Sie wurde eigenständig recherchiert und zusammengefasst, wodurch ich mein Wissen über Erkennungsmethoden und Gegenmaßnahmen erwitern konnte.
+Die Tabelle zeigt meine Fähigkeit, knifflig Sicherheitsrisiken zu identifizieren und zu analysieren. Sie wurde eigenständig recherchiert und zusammengefasst, wodurch ich mein Wissen über Erkennungsmethoden und Gegenmassnahmen erwitern konnte.
 
 **Erklärung des Artefakts:**
-Die Tabelle bietet einen umfassenden Überblick über die zehn größten Sicherheitsrisiken im Bereich der Webanwendungssicherheit (Stand 2021), einschließlich deren Beschreibung, Erkennungsmethoden und Gegenmaßnahmen. Sie dient als kompaktes Recherchemittel für die wichtigsten Bedrohungen und deren Abwehrmöglichkeiten.
+Die Tabelle bietet einen umfassenden Überblick über die zehn grössten Sicherheitsrisiken im Bereich der Webanwendungssicherheit (Stand 2021), einschliesslich deren Beschreibung, Erkennungsmethoden und Gegenmassnahmen. Sie dient als kompaktes Recherchemittel für die wichtigsten Bedrohungen und deren Abwehrmöglichkeiten.
 
 **Kritische Beurteilung:**
 Die OWASP Top Ten 2021 Tabelle erweist sich als ein effektives Instrument, um die zentralen Bedrohungen in der Applikationssicherheit abzubilden. Sie bietet eine solide Übersicht über kritische Sicherheitsrisiken. Da die Tabelle die Sicherheitsrisiken von 2021 abbildet, hätte eine Erweiterung mit Diskussionen über aktuelle "Angriffstrends" und wie man ihnen begegnet, die Bedeutung im sich ständig ändernden Bereich der Cybersecurity erhöht. Ausserdem kann man diesem Artefakt noch zusätzliche Minuspunkte geben, da sie diese Begrifflichkeiten nur oberflächlich beschreibt und keine praxisbezogene Beispiele vorweist. Trotz diesen Einschränkungen bietet die Tabelle, meiner Meinung nach, eine robuste Basis, die ein umfassendes Verständnis der grundlegenden Sicherheitsrisiken bietet.
 
 ## Handlungsziel 2
 
-### Vorheriges Artefakt
-
-#### LoginController - Vorher:
+#### LoginController - Artefakt vorher:
 ```csharp
 using M183.Controllers.Dto;
 using M183.Controllers.Helper;
@@ -99,9 +97,7 @@ namespace M183.Controllers
 }
 ```
 
-### Aktualisiertes Artefakt
-
-#### LoginController - Nachher:
+#### LoginController - Artefakt nachher:
 
 ```csharp
 using M183.Controllers.Dto;
@@ -160,14 +156,14 @@ namespace M183.Controllers
 }
 ```
 
-## Umsetzung des Handlungsziels mit dem Artefakt
+**Nachweis der Zielerreichung:**
 
 Der Code im LoginController erfüllt das Handlungsziel, indem er die Schwachstellen bei der Authentifizierung und Autorisierung des Benutzers adressiert. Durch die Implementierung des Passwort-Hashing-Verfahrens und der Anpassung der Abfrage zum Vergleich von Benutzername und Passwort in der Datenbank wird sichergestellt, dass nur authentifizierte Benutzer Zugriff erhalten.
 
-## Erklärung des Artefakts
+**Erklärung des Artefakts:**
 
 Das Artefakt ist eine überarbeitete Version des Codes des LoginControllers. Der Code implementiert die Funktion "Login", bei der der Benutzername und das Passwort übergeben werden. Der Code stellt sicher, dass die Anfrage valide ist und dass sowohl der Benutzername als auch das Passwort in der Datenbank gespeichert sind. Das Passwort wird vor der Überprüfung mit MD5 gehasht, um die Sicherheit zu verbessern. Dadurch werden Sicherheitslücken in der Authentifizierung verhindert und die Angriffsfläche der Anwendung reduziert.
 
-## Kritische Beurteilung der Umsetzung des Artefakts im Hinblick auf das Handlungsziel
+**Kritische Beurteilung:**
 
-Die Umsetzung des Artefakts ist im Hinblick auf das Handlungsziel erfolgreich. Durch die Überarbeitung des Codes im LoginController werden Sicherheitslücken geschlossen und die Anwendung wird besser vor Angriffen geschützt. Der Code implementiert bewährte Praktiken für die Authentifizierung, wie das Hashen von Passwörtern und die Überprüfung der Benutzerdaten in der Datenbank. Dennoch ist es wichtig zu beachten, dass die Sicherheit einer Anwendung kontinuierlich überwacht und verbessert werden muss. Es kann zusätzliche Maßnahmen geben, die zur Steigerung der Sicherheit der Anwendung beitragen können.
+Die Umsetzung des Artefakts ist im Hinblick auf das Handlungsziel erfolgreich. Durch die Überarbeitung des Codes im LoginController werden Sicherheitslücken geschlossen und die Anwendung wird besser vor Angriffen geschützt. Der Code implementiert bewährte Praktiken für die Authentifizierung, wie das Hashen von Passwörtern und die Überprüfung der Benutzerdaten in der Datenbank. Dennoch ist es wichtig zu beachten, dass die Sicherheit einer Anwendung kontinuierlich überwacht und verbessert werden muss. Es kann zusätzliche Massnahmen geben, die zur Steigerung der Sicherheit der Anwendung beitragen können.
