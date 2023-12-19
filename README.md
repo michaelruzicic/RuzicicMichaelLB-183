@@ -283,7 +283,7 @@ namespace M183.Controllers
 ## Nachweis der Zielereichung
 Die Zielereichung wird durch das überarbeitete Artefakt, den LoginController mit der Implementierung des JwtAuthenticationService, erreicht. Dies ermöglicht die sicherere Authentifizierung und Autorisierung von Benutzern in der Anwendung.
 
-## Erklärung der Artefakte (Codes)
+## Erklärung der Artefakte 
 **Code 1 (vorher):**
 - Verwendet einfache SQL-Abfrage, um Benutzer anhand von Benutzername und Passwort zu überprüfen.
 - Es verwendet den veralteten Ansatz der Übertragung von Passwörtern im Klartext und verwendet MD5-Hashing, was nicht sicher ist.
