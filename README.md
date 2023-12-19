@@ -6,11 +6,11 @@ In der heutigen digitalisierten Welt, in der Anwendungen das Rückgrat zahlreich
 
 | HZ | Handlungsziel                                                                                               |
 |----|-------------------------------------------------------------------------------------------------------------|
-| 1  | Aktuelle Bedrohungen erkennen und erläutern können. Aktuelle Informationen zum Thema beschaffen und mögliche Auswirkungen aufzeigen und erklären können. |
-| 2  | Sicherheitslücken und ihre Ursachen in einer Applikation erkennen können. Gegenmassnahmen vorschlagen und implementieren können. |
-| 3  | Mechanismen für die Authentifizierung und Autorisierung umsetzen können.                                    |
-| 4  | Sicherheitsrelevante Aspekte bei Entwurf, Implementierung und Inbetriebnahme berücksichtigen.               |
-| 5  | Informationen für Auditing und Logging generieren. Auswertungen und Alarme definieren und implementieren.   |
+| I  | Aktuelle Bedrohungen erkennen und erläutern können. Aktuelle Informationen zum Thema beschaffen und mögliche Auswirkungen aufzeigen und erklären können. |
+| II  | Sicherheitslücken und ihre Ursachen in einer Applikation erkennen können. Gegenmassnahmen vorschlagen und implementieren können. |
+| III  | Mechanismen für die Authentifizierung und Autorisierung umsetzen können.                                    |
+| IV  | Sicherheitsrelevante Aspekte bei Entwurf, Implementierung und Inbetriebnahme berücksichtigen.               |
+| V  | Informationen für Auditing und Logging generieren. Auswertungen und Alarme definieren und implementieren.   |
 
 # Handlungsziel I
 
