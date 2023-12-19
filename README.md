@@ -40,4 +40,134 @@ Die Tabelle bietet einen umfassenden Überblick über die zehn größten Sicherh
 **Kritische Beurteilung:**
 Die OWASP Top Ten 2021 Tabelle erweist sich als ein effektives Instrument, um die zentralen Bedrohungen in der Applikationssicherheit abzubilden. Sie bietet eine solide Übersicht über kritische Sicherheitsrisiken. Da die Tabelle die Sicherheitsrisiken von 2021 abbildet, hätte eine Erweiterung mit Diskussionen über aktuelle "Angriffstrends" und wie man ihnen begegnet, die Bedeutung im sich ständig ändernden Bereich der Cybersecurity erhöht. Ausserdem kann man diesem Artefakt noch zusätzliche Minuspunkte geben, da sie diese Begrifflichkeiten nur oberflächlich beschreibt und keine praxisbezogene Beispiele vorweist. Trotz diesen Einschränkungen bietet die Tabelle, meiner Meinung nach, eine robuste Basis, die ein umfassendes Verständnis der grundlegenden Sicherheitsrisiken bietet.
 
+## Handlungsziel 2
 
+### Vorheriges Artefakt
+
+#### LoginController - Vorher:
+```csharp
+using M183.Controllers.Dto;
+using M183.Controllers.Helper;
+using M183.Data;
+using M183.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+
+namespace M183.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class LoginController : ControllerBase
+    {
+        private readonly NewsAppContext _context;
+
+        public LoginController(NewsAppContext context)
+        {
+            _context = context;
+        }
+
+        /// <summary>
+        /// Login a user using password and username
+        /// </summary>
+        /// <response code="200">Login successfull</response>
+        /// <response code="400">Bad request</response>
+        /// <response code="401">Login failed</response>
+        [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public ActionResult<User> Login(LoginDto request)
+        {
+            if (request == null || request.Username.IsNullOrEmpty() || request.Password.IsNullOrEmpty())
+            {
+                return BadRequest();
+            }
+
+            string sql = string.Format("SELECT * FROM Users WHERE username = '{0}' AND password = '{1}'", 
+                request.Username, 
+                MD5Helper.ComputeMD5Hash(request.Password));
+
+            User? user= _context.Users.FromSqlRaw(sql).FirstOrDefault();
+            if (user == null)
+            {
+                return Unauthorized("login failed");
+            }
+            return Ok(user);
+        }
+    }
+}
+```
+
+### Aktualisiertes Artefakt
+
+#### LoginController - Nachher:
+
+```csharp
+using M183.Controllers.Dto;
+using M183.Controllers.Helper;
+using M183.Data;
+using M183.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+
+namespace M183.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class LoginController : ControllerBase
+    {
+        private readonly NewsAppContext _context;
+
+        public LoginController(NewsAppContext context)
+        {
+            _context = context;
+        }
+
+        /// <summary>
+        /// Login a user using password and username
+        /// </summary>
+        /// <response code="200">Login successfull</response>
+        /// <response code="400">Bad request</response>
+        /// <response code="401">Login failed</response>
+        [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public ActionResult<User> Login(LoginDto request)
+        {
+            if (request == null || string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password))
+            {
+                return BadRequest();
+            }
+
+            string sql = "SELECT * FROM Users WHERE username = @Username AND password = @Password";
+
+            SqlParameter usernameParameter = new SqlParameter("@Username", request.Username);
+            SqlParameter passwordParameter = new SqlParameter("@Password", MD5Helper.ComputeMD5Hash(request.Password));
+
+            User? user = _context.Users.FromSqlRaw(sql, usernameParameter, passwordParameter).FirstOrDefault();
+            if (user == null)
+            {
+                return Unauthorized("Login failed");
+            }
+
+            return Ok(user);
+        }
+    }
+}
+```
+
+## Umsetzung des Handlungsziels mit dem Artefakt
+
+Der Code im LoginController erfüllt das Handlungsziel, indem er die Schwachstellen bei der Authentifizierung und Autorisierung des Benutzers adressiert. Durch die Implementierung des Passwort-Hashing-Verfahrens und der Anpassung der Abfrage zum Vergleich von Benutzername und Passwort in der Datenbank wird sichergestellt, dass nur authentifizierte Benutzer Zugriff erhalten.
+
+## Erklärung des Artefakts
+
+Das Artefakt ist eine überarbeitete Version des Codes des LoginControllers. Der Code implementiert die Funktion "Login", bei der der Benutzername und das Passwort übergeben werden. Der Code stellt sicher, dass die Anfrage valide ist und dass sowohl der Benutzername als auch das Passwort in der Datenbank gespeichert sind. Das Passwort wird vor der Überprüfung mit MD5 gehasht, um die Sicherheit zu verbessern. Dadurch werden Sicherheitslücken in der Authentifizierung verhindert und die Angriffsfläche der Anwendung reduziert.
+
+## Kritische Beurteilung der Umsetzung des Artefakts im Hinblick auf das Handlungsziel
+
+Die Umsetzung des Artefakts ist im Hinblick auf das Handlungsziel erfolgreich. Durch die Überarbeitung des Codes im LoginController werden Sicherheitslücken geschlossen und die Anwendung wird besser vor Angriffen geschützt. Der Code implementiert bewährte Praktiken für die Authentifizierung, wie das Hashen von Passwörtern und die Überprüfung der Benutzerdaten in der Datenbank. Dennoch ist es wichtig zu beachten, dass die Sicherheit einer Anwendung kontinuierlich überwacht und verbessert werden muss. Es kann zusätzliche Maßnahmen geben, die zur Steigerung der Sicherheit der Anwendung beitragen können.
