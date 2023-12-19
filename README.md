@@ -138,7 +138,6 @@ namespace M183.Controllers
 }
 ```
 
-Es handelt sich um die gleichen Artefakte wie zuvor, nur in gekürzterer Form, um nur die wichtigsten Änderungen zu zeigen.
 **Nachweis der Zielerreichung:** Der zweite Code zeigt eine Verbesserung in Bezug auf die Sicherheit gegenüber dem vorherigen Code. Dies wird durch die Verwendung parameterisierter SQL-Abfragen mit SQL-Parametern deutlich, was SQL Injection-Angriffe verhindert. Das Ziel, Sicherheitslücken zu erkennen und Gegenmassnahmen zu implementieren, wurde erreicht.
 
 **Erklärung der Artefakte:** Die beiden Codebeispiele repräsentieren eine "LoginController"-Klasse in einer Beispielapplikation. Der vorherige Code verwendete eine unsichere Methode, um Benutzereingaben in SQL-Abfragen einzufügen, während der nachherige Code Sicherheitsverbesserungen durch die Verwendung von parameterisierten Abfragen und SQL-Parametern aufzeigt.
