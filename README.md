@@ -291,11 +291,10 @@ Die Zielereichung wird durch das überarbeitete Artefakt, den LoginController mi
 - Die Authentifizierungsmethode ist nicht sicher und sollte vermieden werden.
 
 **Code 2 (nachher):**
-- Verwendet die Entity Framework Core-Datenbankabfrage, um Benutzer anhand von Benutzername und Passwort zu überprüfen.
 - Nutzt JSON Web Tokens (JWT) für die sichere Authentifizierung und Autorisierung von Benutzern.
 - Erstellt ein JWT-Token und gibt es als Antwort zurück, wenn die Authentifizierung erfolgreich ist. Dieses Token kann für den Zugriff auf geschützte Ressourcen verwendet werden.
 - Die Authentifizierungsmethode wurde erheblich verbessert und verwendet moderne Sicherheitspraktiken.
-- 
+  
 **Kritische Beurteilung**
-Die Umwandlung des alten Codes zum neuen deckt grundsätzlich die Umsetzung der Mechanismen für Authentifizierung und Autorisierung um. Es ist jedoch nicht sehr leicht, es kurz darzustellen, was dazu folgt, dass er für die Leser ermüdend ist.
+Die Umwandlung des alten Codes zum neuen deckt grundsätzlich die Umsetzung der Mechanismen für Authentifizierung und Autorisierung ab. Es ist jedoch nicht sehr leicht, es kurz und prägnant darzustellen, was dazu folgt, dass er für die Leser ermüdend ist.
 
