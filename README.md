@@ -297,4 +297,5 @@ Die Zielereichung wird durch das überarbeitete Artefakt, den LoginController mi
 - Die Authentifizierungsmethode wurde erheblich verbessert und verwendet moderne Sicherheitspraktiken.
 - 
 **Kritische Beurteilung**
-Die Umwandlung des alten Codes zum neuen erfüllt grundsätzlich das Handlungsziel, ist jedoch nur eine Grundlage für die problemlose Authentifizierung und Autorisierung.
+Die Umwandlung des alten Codes zum neuen deckt grundsätzlich die Umsetzung der Mechanismen für Authentifizierung und Autorisierung um. Es ist jedoch nicht sehr leicht, es kurz darzustellen, was dazu folgt, dass er für die Leser ermüdend ist.
+
