@@ -40,9 +40,9 @@ Die Tabelle bietet einen umfassenden Überblick über die zehn grössten Sicherh
 **Kritische Beurteilung:**
 Die OWASP Top Ten 2021 Tabelle erweist sich als ein effektives Instrument, um die zentralen Bedrohungen in der Applikationssicherheit abzubilden. Sie bietet eine solide Übersicht über kritische Sicherheitsrisiken. Da die Tabelle die Sicherheitsrisiken von 2021 abbildet, hätte eine Erweiterung mit Diskussionen über aktuelle "Angriffstrends" und wie man ihnen begegnet, die Bedeutung im sich ständig ändernden Bereich der Cybersecurity erhöht. Ausserdem kann man diesem Artefakt noch zusätzliche Minuspunkte geben, da sie diese Begrifflichkeiten nur oberflächlich beschreibt und keine praxisbezogene Beispiele vorweist. Trotz diesen Einschränkungen bietet die Tabelle, meiner Meinung nach, eine robuste Basis, die ein umfassendes Verständnis der grundlegenden Sicherheitsrisiken bietet.
 
-## Handlungsziel 2
+## Handlungsziel II
 
-#### Artefakt 1 - LoginController nachher:
+#### Artefakt 1 - Code vorher:
 ```csharp
 using M183.Controllers.Dto;
 using M183.Controllers.Helper;
@@ -97,7 +97,7 @@ namespace M183.Controllers
 }
 ```
 
-#### Artefakt 2 - LoginController nachher:
+#### Artefakt 2 - Code nachher:
 
 ```csharp
 using M183.Controllers.Dto;
@@ -161,3 +161,105 @@ namespace M183.Controllers
 **Erklärung der Artefakte:** Die beiden Codebeispiele repräsentieren eine "LoginController"-Klasse in einer Beispielapplikation. Der vorherige Code verwendete eine unsichere Methode, um Benutzereingaben in SQL-Abfragen einzufügen, während der nachherige Code Sicherheitsverbesserungen durch die Verwendung von parameterisierten Abfragen und SQL-Parametern aufzeigt.
 
 **Kritische Beurteilung:** Der vorherige Code wies erhebliche Sicherheitslücken auf, da er ungeschützt gegen SQL Injection-Angriffe war. Dies hätte schwerwiegende Sicherheitsprobleme in der Anwendung verursacht. Der nachherige Code stellt eine deutliche Verbesserung dar, indem er die Sicherheit der Anwendung erhöht. 
+
+## Handlungsziel III
+
+
+
+## Artefakt 1 - Code vorher:
+```csharp
+using M183.Controllers.Dto;
+    ...
+    public class LoginController : ControllerBase
+    {
+        ...
+        [HttpPost]
+        public ActionResult<User> Login(LoginDto request)
+        {
+            ...
+            User? user = _context.Users.FromSqlRaw(sql, usernameParameter, passwordParameter).FirstOrDefault();
+            ...
+        }
+    }
+}
+```
+
+## Artefakt 2 - Code nachher:
+```csharp
+using M183.Controllers.Dto;
+    ...
+public class LoginController : ControllerBase
+    ...
+    {
+        ...
+        [HttpPost]
+        public ActionResult<string> Login(LoginDto request)
+        {
+            ...
+            var user = _context.Users.FirstOrDefault(u => u.Username == request.Username && u.Password == request.Password);
+            ...
+        }
+    }
+}
+```
+
+## Kompletter Code des überarbeiteten LoginControllers:
+```csharp
+using M183.Controllers.Dto;
+using M183.Controllers.Helper;
+using M183.Data;
+using M183.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+
+namespace M183.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class LoginController : ControllerBase
+    {
+        private readonly NewsAppContext _context;
+        private readonly IConfiguration _configuration;
+
+        public LoginController(NewsAppContext context, IConfiguration configuration)
+        {
+            _context = context;
+            _configuration = configuration;
+        }
+
+        [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public ActionResult<string> Login(LoginDto request)
+        {
+            if (request == null || string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password))
+            {
+                return BadRequest();
+            }
+
+            var user = _context.Users.FirstOrDefault(u => u.Username == request.Username && u.Password == request.Password);
+            if (user == null)
+            {
+                return Unauthorized("Login failed");
+            }
+
+            ...
+            return Ok(tokenString);
+        }
+    }
+}
+```
+
+## Nachweis der Zielereichung
+Die Zielereichung wird durch das überarbeitete Artefakt, den LoginController mit der Implementierung des JwtAuthenticationService, erreicht. Dies ermöglicht die sicherere Authentifizierung und Autorisierung von Benutzern in der Anwendung.
+
+## Erklärung der Artefakte (Codes)
+Das Artefakt besteht aus dem überarbeiteten Code des LoginControllers. Dieser verwendet den JwtAuthenticationService, um Benutzer zu authentifizieren und JWT-Tokens zu generieren. Der Benutzer wird anhand des Benutzernamens und des Passworts überprüft. Bei erfolgreicher Authentifizierung wird ein JWT-Token generiert und zurückgegeben.
+
+## Kritische Beurteilung
+Die Umsetzung des Artefakts erfüllt das Handlungsziel, stellt jedoch nur eine Grundlage für die sichere Authentifizierung und Autorisierung dar. Weitere Sicherheitsaspekte wie die sichere Übertragung von Daten müssen ebenfalls berücksichtigt werden. Der Code des Artefakts kann weiter verbessert werden, um Schwachstellen und Sicherheitsrisiken zu minimieren.
