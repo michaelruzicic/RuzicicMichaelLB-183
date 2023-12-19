@@ -32,7 +32,7 @@ In der heutigen digitalisierten Welt, in der Anwendungen das Rückgrat zahlreich
 | 10   | Server-Side Request Forgery (SSRF) | Angriffe, bei denen der Server dazu gebracht wird, unerwünschte Aktionen auszuführen.               | Netzwerküberwachung, Sicherheitsüberprüfungen                        | Beschränkung ausgehender Anfragen, Verwendung sicherer Programmierpraktiken             |
 
 **Nachweis der Zielerreichung:**
-Die Tabelle zeigt meine Fähigkeit, knifflig Sicherheitsrisiken zu identifizieren und zu analysieren. Sie wurde eigenständig recherchiert und zusammengefasst, wodurch ich mein Wissen über Erkennungsmethoden und Gegenmassnahmen erwitern konnte.
+Die Tabelle zeigt meine Fähigkeit, knifflige Sicherheitsrisiken zu identifizieren und zu analysieren. Sie wurde eigenständig recherchiert und zusammengefasst, wodurch ich mein Wissen über Erkennungsmethoden und Gegenmassnahmen erwitern konnte.
 
 **Erklärung des Artefakts:**
 Die Tabelle bietet einen umfassenden Überblick über die zehn grössten Sicherheitsrisiken im Bereich der Webanwendungssicherheit (Stand 2021), einschliesslich deren Beschreibung, Erkennungsmethoden und Gegenmassnahmen. Sie dient als kompaktes Recherchemittel für die wichtigsten Bedrohungen und deren Abwehrmöglichkeiten.
