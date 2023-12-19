@@ -206,7 +206,7 @@ namespace M183.Controllers
 }
 ```
 
-## Artefakt 2 - Kompletter Code nachher:
+## Artefakt 2 - Code nachher:
 ```csharp
 using System;
 using System.IdentityModel.Tokens.Jwt;
